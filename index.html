@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TXT GHOST UPLOAD By TRHACKNON</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff000;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 2px solid #0000ff;
+      border-radius: 10px;
+      background-color: #111;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #ff0000;
+    }
+    .countdown {
+      font-size: 2em;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .reveal {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .reveal.active {
+      display: block;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #0000ff;
+    }
+    a {
+      color: blue;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 CHALLENGE : "TXT GHOST UPLOAD" By TRHACKNON</h1>
+    <p>
+      Un fichier <code>.txt</code> doit discrètement faire son apparition.<br/>
+      <strong>Contenu exigé :</strong><br/>
+      <code>solve by [yourname]</code><br/><br/>
+      💀 Le système ne veut pas de vous? Insistez.<br/>
+      🎭 À vous de le tromper...
+    </p>
+    <p>
+      <strong>Règles :</strong><br/>
+      - Pas de brute force.<br/>
+      - Format strictement <code>.txt</code>.<br/>
+      - Une seule ligne, pas de triche dans le nom du fichier.<br/>
+      - Signature : <code>solve by [votre_pseudo]</code>
+    </p>
+    <h2>⏳Compte à rebours jusqu'à l'indice :</h2>
+    <div class="countdown" id="countdown">Chargement...</div>
+    <div class="reveal" id="reveal">
+      🔓 Indice : Un outil oublié... <strong>trknmass</strong>
+    </div>
+    <div class="footer">
+      Domaine cible : <a href="https://apisisfostikes.gunungsari.id" target="_blank" style="color: #ff0000;">apisisfostikes.gunungsari.id</a>
+    </div>
+  </div>
+  <script>
+    // Définir la date cible (7 juin 2025 à 00:00 heure de Paris)
+    const targetDate = new Date("2025-06-07T00:00:00+02:00").getTime();
+
+    const countdownElement = document.getElementById("countdown");
+    const revealElement = document.getElementById("reveal");
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        clearInterval(interval);
+        countdownElement.textContent = "🔓 Indice révélé !";
+        revealElement.classList.add("active");
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.textContent = `${days}j ${hours}h ${minutes}m ${seconds}s`;
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
